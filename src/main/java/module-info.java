@@ -9,8 +9,8 @@ module org.dgg.modbusrtusnifer {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires jlibmodbus;
-    requires jssc;
+    requires com.fazecast.jSerialComm;
+
 
     opens org.dgg.modbusrtusnifer to javafx.fxml;
     exports org.dgg.modbusrtusnifer;

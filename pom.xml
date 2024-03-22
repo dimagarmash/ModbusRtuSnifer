@@ -58,15 +58,18 @@
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
-    </dependency><dependency>
+    </dependency>
+    <dependency>
       <groupId>org.kordamp.ikonli</groupId>
       <artifactId>ikonli-javafx</artifactId>
       <version>12.3.1</version>
-    </dependency><dependency>
+    </dependency>
+    <dependency>
       <groupId>org.kordamp.bootstrapfx</groupId>
       <artifactId>bootstrapfx-core</artifactId>
       <version>0.4.0</version>
-    </dependency><dependency>
+    </dependency>
+    <dependency>
       <groupId>eu.hansolo</groupId>
       <artifactId>tilesfx</artifactId>
       <version>11.48</version>
@@ -92,11 +95,11 @@
     <scope>test</scope>
   </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.github.flyingdew/jlibmodbus -->
+
     <dependency>
-      <groupId>io.github.flyingdew</groupId>
-      <artifactId>jlibmodbus</artifactId>
-      <version>1.2.9.7</version>
+      <groupId>com.fazecast</groupId>
+      <artifactId>jSerialComm</artifactId>
+      <version>[2.0.0,3.0.0)</version>
     </dependency>
 
 
