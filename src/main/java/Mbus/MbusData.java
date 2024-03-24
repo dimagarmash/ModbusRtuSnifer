@@ -15,6 +15,28 @@ public class MbusData {
     {
         int tmp;
 
+//        if (Hi>=0)
+//        {
+//            tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
+//        }
+//        else {
+//            tmp = (((~Hi) & 0xff) << 8) + ((~Lo) & 0xFF);
+//            tmp=~tmp;
+//        }
+
+
+
+        tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
+
+
+
+        return tmp;
+    }
+    int GetSignedValue(){
+        int tmp;
+
+
+
         if (Hi>=0)
         {
             tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
@@ -23,13 +45,6 @@ public class MbusData {
             tmp = (((~Hi) & 0xff) << 8) + ((~Lo) & 0xFF);
             tmp=~tmp;
         }
-        return tmp;
-    }
-    int GetSignedValue(){
-        int tmp;
-
-
-            tmp = (Hi<<8) + (Lo) ;
 
         return tmp;
     }

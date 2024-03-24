@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/interfaceDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Mbus/MbusDataTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/testDataInt.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/testDataUint.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Const/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Const/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Mbus/MbusDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Mbus/MbusDataTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +37,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -53,12 +52,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "JUnit.MbusDataTest.executor": "Run",
+    "JUnit.MbusDataTest.getSignedValue.executor": "Run",
+    "Maven.ModbusRtuSnifer [test].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "I:/DimaWorkSpace/LoraWan/Serwer/ProjectLoRaServer/archives/LoRaServer&ScriptsRunnerV1.35",
+    "last_opened_file_path": "I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/src/test/java/Mbus",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -66,8 +68,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\src\test\java\Mbus" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\src\test\resources" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Mbus" />
@@ -76,7 +84,7 @@
       <recent name="Mbus" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MbusDataTest">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.dgg.modbusrtusnifer.HelloApplication" />
       <module name="ModbusRtuSnifer" />
@@ -90,8 +98,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MbusDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ModbusRtuSnifer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Mbus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Mbus" />
+      <option name="MAIN_CLASS_NAME" value="Mbus.MbusDataTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MbusDataTest.getSignedValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ModbusRtuSnifer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Mbus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Mbus" />
+      <option name="MAIN_CLASS_NAME" value="Mbus.MbusDataTest" />
+      <option name="METHOD_NAME" value="getSignedValue(byte,byte,int)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MbusDataTest" />
+        <item itemvalue="JUnit.MbusDataTest.getSignedValue" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -130,8 +171,35 @@
       <option name="project" value="LOCAL" />
       <updated>1710573744897</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1711141113479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711141113479</updated>
+    </task>
+    <task id="LOCAL-00004" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1711141196727</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711141196727</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />

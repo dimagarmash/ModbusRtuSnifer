@@ -23,4 +23,6 @@ public class InfoOfPackage {
         this.CRC = CRC;
         this.CRCIsOk = CRCIsOk;
     }
+
+
 }
