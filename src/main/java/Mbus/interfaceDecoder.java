@@ -16,7 +16,7 @@ public interface interfaceDecoder {
 
     int GetEndRegisterAdr(byte[] CurrentBytes,Function function,int StartRegisterAddress) throws Exception;
 
-    List<MbusData> GetRegistersData(byte[] CurrentBytes,int StartRegisterAdr,int EndRegisterAdr)throws Exception;
+    List<MbusData> GetRegistersData(byte[] CurrentBytes,Function function,String TypePackage,int DataBytesCount)throws Exception;
 
     int GetCountOfDataBytes(byte[]CurrentBytes,Function function,String TypePackage)throws Exception;
 
