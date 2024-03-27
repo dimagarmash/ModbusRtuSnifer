@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/CRC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder almost complete">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Const/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Const/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/interfaceDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/interfaceDecoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -85,7 +85,7 @@
       <recent name="Mbus" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MbusDataTest">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.dgg.modbusrtusnifer.HelloApplication" />
       <module name="ModbusRtuSnifer" />
@@ -132,9 +132,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.MbusDataTest" />
         <item itemvalue="JUnit.MbusDataTest.getSignedValue" />
-        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +196,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711300408646</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="MbusData complete&#10;decoder almost complete">
+      <option name="closed" value="true" />
+      <created>1711486222766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711486222766</updated>
+    </task>
+    <task id="LOCAL-00007" summary="MbusData complete&#10;decoder almost complete">
+      <option name="closed" value="true" />
+      <created>1711486313131</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711486313131</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,6 +229,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="MbusData complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete" />
+    <MESSAGE value="MbusData complete&#10;decoder almost complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder almost complete" />
   </component>
 </project>

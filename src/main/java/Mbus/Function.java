@@ -20,6 +20,22 @@ public class Function {
     int StartDataPosInRequest;
     int StartDataPosInResponse;
 
+    @Override
+    public String toString() {
+        return "Function{" +
+                "Number='" + Number + '\'' +
+                ", number=" + number +
+                ", NumberWhenErr='" + NumberWhenErr + '\'' +
+                ", numberWhenErr=" + numberWhenErr +
+                ", Description='" + Description + '\'' +
+                ", MinRequestByteLength=" + MinRequestByteLength +
+                ", isFixedResponseLength=" + isFixedResponseLength +
+                ", MinResponseLength=" + MinResponseLength +
+                ", isFixedRequestLength=" + isFixedRequestLength +
+                ", StartDataPosInRequest=" + StartDataPosInRequest +
+                ", StartDataPosInResponse=" + StartDataPosInResponse +
+                '}';
+    }
 
     public Function(String number, byte number1, String numberWhenErr, byte numberWhenErr1, String description, int minRequestByteLength, boolean isFixedResponseLength, int minResponseLength, boolean isFixedRequestLength, int startDataPosInRequest, int startDataPosInResponse) {
         Number = number;

@@ -3,7 +3,7 @@ package Mbus;
 import java.util.List;
 
 public interface interfaceDecoder {
-    InfoOfPackage DecodePackage(byte[] CurrentBytes, byte[] PreviousBytes) throws Exception;
+    InfoOfPackage DecodePackage(byte[] CurrentBytes,InfoOfPackage PreviousInfoOfPackage) throws Exception;
 
     String GetPackageType(byte[] CurrentBytes, Function currentFunc,Function previousFunc,Error error,String previousType,boolean CRCIsOk) throws Exception;
     int GetAddress(byte[] CurrentBytes) throws Exception;
@@ -26,5 +26,6 @@ public interface interfaceDecoder {
     int CalculateCRC(byte []CurrentBytes)throws Exception;
 
     boolean CheckCRC(byte[] CurrentBytes)throws Exception;
+     boolean CheckCRC(int CRC,int CalculatedCRC) throws Exception;
 
 }

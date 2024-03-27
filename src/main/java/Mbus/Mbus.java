@@ -11,7 +11,9 @@ public class Mbus  {
 
 
 
- public static final String Com="COM10";
+ public static final String Com="COM6";
+    static InfoOfPackage currentInfo=null;
+    static InfoOfPackage previousInfo=null;
     public static void serialInitialze()
     {
        SerialPort [] serialPorts=  SerialPort.getCommPorts();
@@ -19,7 +21,25 @@ public class Mbus  {
         for (SerialPort s : serialPorts){
             System.out.println("Avaliable ports : "+s.getSystemPortName());
             if (s.getSystemPortName().equals(Com)){
-                s.openPort();
+
+                s.setBaudRate(115200);
+                s.setParity(0);
+                s.setNumStopBits(1);
+                s.setNumDataBits(8);
+
+                System.out.println("___________________________________________________");
+                System.out.println("SystemPortName()  : "+s.getSystemPortName());
+                System.out.println("getNumDataBits()  : "+s.getNumDataBits());
+                System.out.println("getBaudRate()  : "+s.getBaudRate());
+                System.out.println("getNumStopBits()  : "+s.getNumStopBits());
+                System.out.println("getParity()  : "+s.getParity());
+                System.out.println("openPort()  : "+s.openPort());
+                System.out.println("___________________________________________________");
+
+
+
+
+
                 s.addDataListener(new SerialPortDataListener() {
                     @Override
                     public int getListeningEvents() { return SerialPort.LISTENING_EVENT_DATA_AVAILABLE; }
@@ -44,6 +64,19 @@ public class Mbus  {
                         System.out.println("After StringBuilder");
                         System.out.println(sb.toString());
 
+                        Decoder decoder =new Decoder();
+                        try {
+                            System.out.println("##########################################################");
+                            System.out.println(previousInfo);
+                            System.out.println("##########################################################");
+                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                            System.out.println(currentInfo);
+                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                            currentInfo=decoder.DecodePackage(newData,previousInfo);
+                        } catch (Exception e) {
+                           e.printStackTrace();
+                        }
+                        previousInfo=currentInfo;
                     }
                 });
             }

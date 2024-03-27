@@ -8,10 +8,43 @@ import java.util.List;
 public class Decoder extends Functions implements interfaceDecoder  {
     
     @Override
-    public InfoOfPackage DecodePackage(byte[] CurrentBytes, byte[] PreviousBytes)throws Exception
+    public InfoOfPackage DecodePackage(byte[] CurrentBytes, InfoOfPackage PreviousInfoOfPackage)throws Exception
     {
+        String PackageType=String.valueOf(Const.PackageType.NOT_RECOGNIZED);
+        int Address=-1;
+        Function function=null;
+        int StartRegisterAddress=-1;
+        int EndRegisterAddress=-1;
+        List<MbusData> data=new ArrayList<MbusData>();
+        int CRC=-1;
+        boolean CRCIsOk=false;
+        Error error=null;
+        int BytesCount=-1;
+        int CalculatedCRC=-2;
 
-        return new InfoOfPackage();
+        if (CurrentBytes.length>=Const.minLengthOfPackage){
+
+            CRC=GetCRC(CurrentBytes);
+            CalculatedCRC=CalculateCRC(CurrentBytes);
+            CRCIsOk=CheckCRC(CRC,CalculatedCRC);
+
+            if (CRCIsOk) {
+                error=CheckErr(CurrentBytes);
+                Address=GetAddress(CurrentBytes);
+                function=GetFunction(CurrentBytes);
+                PackageType= GetPackageType(CurrentBytes,function,PreviousInfoOfPackage.function,error,PreviousInfoOfPackage.PackageType,CRCIsOk);
+                if (error!=null) {
+                    StartRegisterAddress = GetStartRegisterAdr(CurrentBytes);
+                    EndRegisterAddress = GetEndRegisterAdr(CurrentBytes, function, StartRegisterAddress);
+                    BytesCount=GetCountOfDataBytes(CurrentBytes,function,PackageType);
+                    data=GetRegistersData(CurrentBytes,function,PackageType,BytesCount);
+                }
+            }
+
+        }
+
+
+        return new InfoOfPackage(CurrentBytes,PackageType,Address,function,StartRegisterAddress,EndRegisterAddress,data, CRC,CRCIsOk,BytesCount, error, CalculatedCRC);
     }
     @Override
     public String GetPackageType(byte[] CurrentBytes, Function currentFunc,Function previousFunc,Error error,String previousType,boolean CRCIsOk)throws Exception
@@ -145,7 +178,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
         if (CurrentBytes.length>=Const.minLengthOfPackage) {
 
             for (Function f :FUNCTION_LIST){
-                if (f.number==CurrentBytes[Const.FunctionNumberPositionInPackage]){
+                if (f.number==CurrentBytes[Const.FunctionNumberPositionInPackage]||f.numberWhenErr==CurrentBytes[Const.FunctionNumberPositionInPackage]){
                     result=f;
                     break;
                 }
@@ -182,26 +215,27 @@ public class Decoder extends Functions implements interfaceDecoder  {
     @Override
     public List<MbusData> GetRegistersData(byte[] CurrentBytes,Function function,String TypePackage,int DataBytesCount ) throws Exception{
         List<MbusData> result=new ArrayList<>();
-        if (TypePackage.equals(String.valueOf(Const.PackageType.REQUEST))){
-            if (function.StartDataPosInRequest!=-1){
-                if (function.StartDataPosInRequest+DataBytesCount<CurrentBytes.length) {
-                    for (int i = function.StartDataPosInRequest; i < function.StartDataPosInRequest + DataBytesCount; i+=2) {
-                        result.add(new MbusData(CurrentBytes[i],CurrentBytes[i+1] ));
+        if (CurrentBytes!=null&&function!=null&&TypePackage!=null&& DataBytesCount>0) {
+            if (TypePackage.equals(String.valueOf(Const.PackageType.REQUEST))) {
+                if (function.StartDataPosInRequest != -1) {
+                    if (function.StartDataPosInRequest + DataBytesCount < CurrentBytes.length) {
+                        for (int i = function.StartDataPosInRequest; i < function.StartDataPosInRequest + DataBytesCount; i += 2) {
+                            result.add(new MbusData(CurrentBytes[i], CurrentBytes[i + 1]));
+                        }
                     }
                 }
-            }
-        }else if (TypePackage.equals(String.valueOf(Const.PackageType.RESPONSE))){
-            if (function==ReadCoilStatus||function==ReadInputStatus){
-                if (function.StartDataPosInResponse+DataBytesCount<CurrentBytes.length) {
-                    for (int i = function.StartDataPosInResponse; i < function.StartDataPosInResponse + DataBytesCount; i++) {
-                        result.add(new MbusData((byte) 0,CurrentBytes[i] ));
+            } else if (TypePackage.equals(String.valueOf(Const.PackageType.RESPONSE))) {
+                if (function == ReadCoilStatus || function == ReadInputStatus) {
+                    if (function.StartDataPosInResponse + DataBytesCount < CurrentBytes.length) {
+                        for (int i = function.StartDataPosInResponse; i < function.StartDataPosInResponse + DataBytesCount; i++) {
+                            result.add(new MbusData((byte) 0, CurrentBytes[i]));
+                        }
                     }
-                }
-            }
-            else {
-                if (function.StartDataPosInResponse+DataBytesCount<CurrentBytes.length) {
-                    for (int i = function.StartDataPosInResponse; i < function.StartDataPosInResponse + DataBytesCount; i+=2) {
-                        result.add(new MbusData(CurrentBytes[i],CurrentBytes[i+1] ));
+                } else {
+                    if (function.StartDataPosInResponse + DataBytesCount < CurrentBytes.length) {
+                        for (int i = function.StartDataPosInResponse; i < function.StartDataPosInResponse + DataBytesCount; i += 2) {
+                            result.add(new MbusData(CurrentBytes[i], CurrentBytes[i + 1]));
+                        }
                     }
                 }
             }
@@ -302,6 +336,21 @@ public class Decoder extends Functions implements interfaceDecoder  {
             }
 
         }
+        return result;
+    }
+    @Override
+    public boolean CheckCRC(int CRC,int CalculatedCRC) throws Exception{
+        boolean result=false;
+
+
+
+
+            if (CRC==CalculatedCRC)
+            {
+                result=true;
+            }
+
+
         return result;
     }
 
