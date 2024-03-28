@@ -12,8 +12,8 @@ public class Mbus  {
 
 
  public static final String Com="COM6";
-    static InfoOfPackage currentInfo=null;
-    static InfoOfPackage previousInfo=null;
+    static InfoOfPackage currentInfo=new InfoOfPackage();
+    static InfoOfPackage previousInfo=new InfoOfPackage();
     public static void serialInitialze()
     {
        SerialPort [] serialPorts=  SerialPort.getCommPorts();
@@ -69,10 +69,11 @@ public class Mbus  {
                             System.out.println("##########################################################");
                             System.out.println(previousInfo);
                             System.out.println("##########################################################");
+                            currentInfo=decoder.DecodePackage(newData,previousInfo);
                             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                             System.out.println(currentInfo);
                             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                            currentInfo=decoder.DecodePackage(newData,previousInfo);
+
                         } catch (Exception e) {
                            e.printStackTrace();
                         }

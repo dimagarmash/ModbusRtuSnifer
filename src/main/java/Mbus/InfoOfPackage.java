@@ -21,15 +21,26 @@ public class InfoOfPackage {
 
     @Override
     public String toString() {
+        String bytes =null;
+        String fnumber=null;
+        String fdescription=null;
+        if (function!=null)
+        {
+            fdescription=function.Description;
+            fnumber=function.Number;
+        }
+        if (PackageBytes!=null){
+            bytes=Arrays.toString(PackageBytes);
+        }
         return "InfoOfPackage{" +
-                "PackageBytes=" + Arrays.toString(PackageBytes) +
+                "PackageBytes=" + bytes +
                 ", PackageType='" + PackageType + '\'' +
                 ", Address=" + Address +
-                ", function=" + function +
+                ", function=" + fnumber +" "+fdescription+
                 ", StartRegisterAddress=" + StartRegisterAddress +
                 ", EndRegisterAddress=" + EndRegisterAddress +
                 ", DataBytesCount=" + DataBytesCount +
-                ", RegisterData=" + RegisterData +
+                ", RegisterData=" + "\t"+RegisterData +"\n"+
                 ", error=" + error +
                 ", CRC=" + CRC +
                 ", CalculatedCRC=" + CalculatedCRC +
@@ -52,5 +63,18 @@ public class InfoOfPackage {
         CalculatedCRC=calculatedCrc;
     }
 
-
+    public InfoOfPackage() {
+        PackageType = null;
+        Address = -1;
+        this.function = null;
+        StartRegisterAddress = -1;
+        EndRegisterAddress = -1;
+        RegisterData = null;
+        this.CRC = -1;
+        this.CRCIsOk = false;
+        PackageBytes=null;
+        DataBytesCount=-1;
+        error=null;
+        CalculatedCRC=-1;
+    }
 }

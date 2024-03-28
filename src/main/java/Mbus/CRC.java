@@ -12,9 +12,11 @@ public class CRC {
         for (int c = 0; c < 8; c++)
         {
             flag = crc16 & 0x01; // LSBit di crc16 is mantained
-            crc16 = crc16 >> 1; // Lsbit di crc16 is lost
-            if (flag != 0)
-                crc16 = crc16 ^ 0x0a001; // crc16 XOR with 0x0a001
+            crc16 = crc16 >> 1;// Lsbit di crc16 is lost
+            if (flag != 0) {
+
+                crc16 = crc16 ^ 0x0a001;
+            }// crc16 XOR with 0x0a001
         }
         return crc16;
     }

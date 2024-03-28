@@ -33,7 +33,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
                 Address=GetAddress(CurrentBytes);
                 function=GetFunction(CurrentBytes);
                 PackageType= GetPackageType(CurrentBytes,function,PreviousInfoOfPackage.function,error,PreviousInfoOfPackage.PackageType,CRCIsOk);
-                if (error!=null) {
+                if (error.RestrictedDescription==NoError.RestrictedDescription) {
                     StartRegisterAddress = GetStartRegisterAdr(CurrentBytes);
                     EndRegisterAddress = GetEndRegisterAdr(CurrentBytes, function, StartRegisterAddress);
                     BytesCount=GetCountOfDataBytes(CurrentBytes,function,PackageType);
@@ -54,7 +54,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
         if (CurrentBytes.length>=Const.minLengthOfPackage)
         {
             if (CRCIsOk) {
-                if (error != null) {
+                if (error.RestrictedDescription == NoError.RestrictedDescription) {
                     if (currentFunc != null) {
                         if (previousFunc!=null){
                             if (currentFunc==previousFunc){
@@ -102,7 +102,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
         String result= String.valueOf(Const.PackageType.NOT_RECOGNIZED);
         MbusData data = new MbusData((byte) 0, CurrentBytes[Const.CountDataBytesInResponsePositionInPackage]);
         int expbytescount = data.GetUnsignedValue();
-        int actbutescount = CurrentBytes.length - (currentFunc.StartDataPosInResponse + 1) + 2;
+        int actbutescount = CurrentBytes.length - (currentFunc.StartDataPosInResponse + 2) ;
         if (expbytescount == actbutescount) {
             if (expbytescount == 3 && (currentFunc.number == 1 || currentFunc.number == 2)) {
                 if (previousType!=null) {
@@ -274,12 +274,13 @@ public class Decoder extends Functions implements interfaceDecoder  {
 
     @Override
     public Error CheckErr(byte[] CurrentBytes) throws Exception{
-        Error result=null;
-
+        Error result=new Error();
+        boolean flag=false;
         if (CurrentBytes.length>=Const.minLengthOfPackage) {
 
             for (Function f :FUNCTION_LIST){
                 if (f.numberWhenErr==CurrentBytes[Const.FunctionNumberPositionInPackage]){
+
                     for (Error e:ERROR_LIST){
                         if (e.Number==CurrentBytes[Const.ErrorNumberPositionInPackage]){
                             result=e;
@@ -289,6 +290,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
 
                 }
             }
+
         }
         return result;
     }
@@ -316,7 +318,10 @@ public class Decoder extends Functions implements interfaceDecoder  {
             {
                 crc16 = CRC.UpdateCRC_Modbus(CurrentBytes[d], crc16);
             }
-
+            int a=(crc16&0xff);
+            int b=(crc16&0xff00)>>8;
+            MbusData data=new MbusData((byte) a,(byte) b);
+            crc16=data.GetUnsignedValue();
         }
         return crc16;
     }

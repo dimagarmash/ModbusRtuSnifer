@@ -26,6 +26,9 @@ class Functions {
             PresetMultipleRegisters
     ));
 
+    public static final Error NoError =new Error((byte) 0x00,
+            "NoError",
+            "NoError");
     public static final Error IllegalFunction =new Error((byte) 0x01,
             "IllegalFunction",
             "The function code received in the query is not an allowable action for the server.  This may be because the function code is only applicable to newer devices, and was not implemented in the unit selected.  It could also indicate that the server is in the wrong state to process a request of this type, for example because it is unconfigured and is being asked to return register values. If a Poll Program Complete command was issued, this code indicates that no program function preceded it.");
@@ -60,6 +63,7 @@ class Functions {
             "GatewayTargetDeviceFailedtoRespond",
             "Specialized use in conjunction with gateways, indicates that no response was obtained from the target device. Usually means that the device is not present on the network.");
     public static final List<Error> ERROR_LIST=new ArrayList<Error>(Arrays.asList(
+            NoError,
             IllegalFunction,
             IllegalDataAddress,
             IllegalDataValue,

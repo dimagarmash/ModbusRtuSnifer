@@ -5,6 +5,12 @@ public class Error {
     String RestrictedDescription;
     String FullDescription;
 
+    public Error() {
+        Number=0;
+        RestrictedDescription="NoError";
+        FullDescription="NoError";
+    }
+
     @Override
     public String toString() {
         return "Error{" +

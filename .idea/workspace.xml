@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder almost complete">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" afterDir="false" />
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/CRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/CRC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/interfaceDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/interfaceDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,24 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.getSignedValue.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ModbusRtuSnifer [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/src/test/java/Mbus&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "JUnit.DecoderTest.checkErr.executor": "Run",
+    "JUnit.MbusDataTest.executor": "Run",
+    "JUnit.MbusDataTest.getSignedValue.executor": "Run",
+    "Maven.ModbusRtuSnifer [test].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/src/test/java/Mbus",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\src\test\java\Mbus" />
@@ -95,6 +97,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DecoderTest.checkErr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ModbusRtuSnifer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Mbus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Mbus" />
+      <option name="MAIN_CLASS_NAME" value="Mbus.DecoderTest" />
+      <option name="METHOD_NAME" value="checkErr(java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,6 +151,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.DecoderTest.checkErr" />
         <item itemvalue="JUnit.MbusDataTest" />
         <item itemvalue="JUnit.MbusDataTest.getSignedValue" />
       </list>
@@ -212,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711486313131</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong">
+      <option name="closed" value="true" />
+      <created>1711549852157</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711549852157</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +257,23 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="MbusData complete" />
     <MESSAGE value="MbusData complete&#10;decoder almost complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder almost complete" />
+    <MESSAGE value="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong" />
+    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Mbus/Decoder.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="CurrentBytes" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

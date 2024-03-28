@@ -11,32 +11,22 @@ public class MbusData {
         Lo = lo;
     }
 
+    @Override
+    public String toString() {
+        return "MbusData{" +
+                "Hi=" + Integer.toHexString(Hi&0xff) +
+                ", Lo=" + Integer.toHexString(Lo&0xff) +
+                '}';
+    }
+
     int GetUnsignedValue()
     {
         int tmp;
-
-//        if (Hi>=0)
-//        {
-//            tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
-//        }
-//        else {
-//            tmp = (((~Hi) & 0xff) << 8) + ((~Lo) & 0xFF);
-//            tmp=~tmp;
-//        }
-
-
-
         tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
-
-
-
         return tmp;
     }
     int GetSignedValue(){
         int tmp;
-
-
-
         if (Hi>=0)
         {
             tmp = (((Hi) & 0xff) << 8) + ((Lo) & 0xFF);//делаем сдвиг старшего влево добавляем к старшему младший и младший делаем беззнаковым
