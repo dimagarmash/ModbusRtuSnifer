@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong">
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/CRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/CRC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Functions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Const/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Const/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Mbus/DecoderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -239,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711549852157</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="MbusData complete&#10;decoder  looks ok but need mo tests">
+      <option name="closed" value="true" />
+      <created>1711630398014</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711630398015</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +262,8 @@
     <MESSAGE value="MbusData complete" />
     <MESSAGE value="MbusData complete&#10;decoder almost complete" />
     <MESSAGE value="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong" />
+    <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -267,6 +272,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/Mbus/Decoder.java</url>
           <line>105</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Settings/Settings.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

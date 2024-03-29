@@ -1,6 +1,7 @@
 package org.dgg.modbusrtusnifer;
 
 import Mbus.Mbus;
+import Settings.Settings;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,6 +27,8 @@ public class HelloApplication extends Application {
             Mbus.serialInitialze();
         });
         thread.start();
+
+        Settings.InitializeSettings();
         launch();
 
     }

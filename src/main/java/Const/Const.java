@@ -20,4 +20,17 @@ public class Const {
         RESPONSE,
         NOT_RECOGNIZED
     }
+    public static enum ProgrammMode{
+        SNIFF,
+        SLAVE,
+        MASTER
+    }
+    public static final String PathToSettingsFile= "\\Settings.properties";
+
+    public static final String DefaultPort="COM1";
+    public static final int DefaultBaudRate=115200;
+    public static final int DefaultParity=0;
+    public static final int DefaultStopBits=1;
+    public static final int DefaultDataBits=8;
+    public static final Const.ProgrammMode DefaultPMode=ProgrammMode.SNIFF;
 }

@@ -3,6 +3,8 @@ package Mbus;
 
 
 import java.util.Arrays;
+
+import Settings.Settings;
 import com.fazecast.jSerialComm.*;
 
 public class Mbus  {
@@ -78,7 +80,10 @@ public class Mbus  {
                            e.printStackTrace();
                         }
                         previousInfo=currentInfo;
+                        //Settings s =new Settings();
+
                     }
+
                 });
             }
         }
