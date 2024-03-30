@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests">
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Const/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Const/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.HelloApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Debug",
     "JUnit.DecoderTest.checkErr.executor": "Run",
     "JUnit.MbusDataTest.executor": "Run",
     "JUnit.MbusDataTest.getSignedValue.executor": "Run",
@@ -243,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711630398015</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings">
+      <option name="closed" value="true" />
+      <created>1711729392394</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711729392394</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +269,8 @@
     <MESSAGE value="MbusData complete&#10;decoder almost complete" />
     <MESSAGE value="MbusData complete&#10;decoder  complete but calculate modbusCRC is wrong" />
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests" />
+    <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -277,6 +284,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/Settings/Settings.java</url>
           <line>101</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Mbus/Mbus.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Mbus/PackagesInfo.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
