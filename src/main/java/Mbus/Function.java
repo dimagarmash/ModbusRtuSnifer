@@ -23,17 +23,17 @@ public class Function {
     @Override
     public String toString() {
         return "Function{" +
-                "Number='" + Number + '\'' +
-                ", number=" + number +
-                ", NumberWhenErr='" + NumberWhenErr + '\'' +
-                ", numberWhenErr=" + numberWhenErr +
-                ", Description='" + Description + '\'' +
-                ", MinRequestByteLength=" + MinRequestByteLength +
-                ", isFixedResponseLength=" + isFixedResponseLength +
-                ", MinResponseLength=" + MinResponseLength +
-                ", isFixedRequestLength=" + isFixedRequestLength +
-                ", StartDataPosInRequest=" + StartDataPosInRequest +
-                ", StartDataPosInResponse=" + StartDataPosInResponse +
+                "\n\tNumber='" + Number + '\'' +
+                "\n\t, number=" + number +
+                "\n\t, NumberWhenErr='" + NumberWhenErr + '\'' +
+                "\n\t, numberWhenErr=" + numberWhenErr +
+                "\n\t, Description='" + Description + '\'' +
+                "\n\t, MinRequestByteLength=" + MinRequestByteLength +
+                "\n\t, isFixedResponseLength=" + isFixedResponseLength +
+                "\n\t, MinResponseLength=" + MinResponseLength +
+                "\n\t, isFixedRequestLength=" + isFixedRequestLength +
+                "\n\t, StartDataPosInRequest=" + StartDataPosInRequest +
+                "\n\t, StartDataPosInResponse=" + StartDataPosInResponse +
                 '}';
     }
 

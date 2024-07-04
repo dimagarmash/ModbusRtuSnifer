@@ -14,9 +14,9 @@ public class Error {
     @Override
     public String toString() {
         return "Error{" +
-                "Number=" + Number +
-                ", RestrictedDescription='" + RestrictedDescription + '\'' +
-                ", FullDescription='" + FullDescription + '\'' +
+                "\n\t Number=" + Number +
+                "\n\t , RestrictedDescription='" + RestrictedDescription + '\'' +
+                "\n\t , FullDescription='" + FullDescription + '\'' +
                 '}';
     }
 

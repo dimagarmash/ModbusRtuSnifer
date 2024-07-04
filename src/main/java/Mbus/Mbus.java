@@ -7,52 +7,63 @@ import java.util.Arrays;
 import Settings.Settings;
 import com.fazecast.jSerialComm.*;
 
-public class Mbus  extends Thread{
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class Mbus  extends Thread implements interfaceMbus {
 
 
+    private static final Logger logger= LogManager.getLogger(Mbus.class);
 
-
-
-
-        PackagesInfo packagesInfo;
-     InfoOfPackage PreviousInfo;
-
-      SerialPort serialPort;
-     PortListener portListener;
+    WriterToControllerInterface writer;
+    PackagesInfo packagesInfo;
+    InfoOfPackage PreviousInfo;
+    SerialPort serialPort;
+    PortListener portListener;
 
 
 
     @Override
     public void run() {
 
-        OpenPort();
+        //OpenPort();
     }
-    public synchronized void MbusInitialize(PackagesInfo packagesInfo,InfoOfPackage previousInfo){
 
-            this.packagesInfo=packagesInfo;
-            PreviousInfo=previousInfo;
+    @Override
+    public void stopandcloseport() {
+
+    }
+
+
+    public synchronized void MbusInitialize(WriterToControllerInterface writer1){
+        logger.log(Level.DEBUG,"Mbus Initialize");
+        writer=writer1;
        try {
            serialPort =serialInitialze(Settings.getPort(),Settings.getBaudRate(),Settings.getDataBits(),Settings.getStopBits(),Settings.getParity());
            if (serialPort!=null){
                portListener=new PortListener();
-               portListener.ListenerInitialize(serialPort,this.packagesInfo,PreviousInfo);
+               portListener.ListenerInitialize(writer,serialPort,this.packagesInfo,PreviousInfo);
                serialPort.addDataListener(portListener);
            }
        }catch (Exception e){
            e.printStackTrace();
+           logger.log(Level.DEBUG,"Something going wrong when MbusInitialize going");
+           logger.log(Level.WARN,e);
        }
 
 
     }
 
 
-    public static SerialPort serialInitialze(String Port,int BaudRate,int Databits,int StopBits,int Parity)
+    public  SerialPort serialInitialze(String Port,int BaudRate,int Databits,int StopBits,int Parity)
     {
+        logger.log(Level.DEBUG,"SerialInitialize started");
         SerialPort result =null;
         SerialPort [] serialPorts=  SerialPort.getCommPorts();
         try {
             for (SerialPort s : serialPorts){
-                System.out.println("Avaliable ports : "+s.getSystemPortName());
+                logger.log(Level.DEBUG,"Avaliable ports : "+s.getSystemPortName());
                 if (s.getSystemPortName().equals(Port)){
 
                     s.setBaudRate(BaudRate);
@@ -60,14 +71,15 @@ public class Mbus  extends Thread{
                     s.setNumStopBits(StopBits);
                     s.setNumDataBits(Databits);
 
-                    System.out.println("___________________________________________________");
-                    System.out.println("SystemPortName()  : "+s.getSystemPortName());
-                    System.out.println("getNumDataBits()  : "+s.getNumDataBits());
-                    System.out.println("getBaudRate()  : "+s.getBaudRate());
-                    System.out.println("getNumStopBits()  : "+s.getNumStopBits());
-                    System.out.println("getParity()  : "+s.getParity());
+                    logger.log(Level.DEBUG,"___________________________________________________");
+                    logger.log(Level.DEBUG,"Something going wrong when SerialInitialize going");
+                    logger.log(Level.DEBUG,"SystemPortName()  : "+s.getSystemPortName());
+                    logger.log(Level.DEBUG,"getNumDataBits()  : "+s.getNumDataBits());
+                    logger.log(Level.DEBUG,"getBaudRate()  : "+s.getBaudRate());
+                    logger.log(Level.DEBUG,"getNumStopBits()  : "+s.getNumStopBits());
+                    logger.log(Level.DEBUG,"getParity()  : "+s.getParity());
 
-                    System.out.println("___________________________________________________");
+                    logger.log(Level.DEBUG,"___________________________________________________");
                     result=s;
                     return result;
 
@@ -75,6 +87,8 @@ public class Mbus  extends Thread{
             }
         }catch (Exception e){
             e.printStackTrace();
+            logger.log(Level.DEBUG,"Something going wrong when SerialInitialize going");
+            logger.log(Level.WARN,e);
         }
 
         return result;
@@ -85,18 +99,34 @@ public class Mbus  extends Thread{
          serialPort.openPort();
      }catch (Exception e){
          e.printStackTrace();
+         logger.log(Level.DEBUG,"Something going wrong when OpenPort going");
+         logger.log(Level.WARN,e);
      }
      return result;
     }
+    public boolean ClosePort(){
+        boolean result=false;
+        try {
+            serialPort.closePort();
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.log(Level.DEBUG,"Something going wrong when ClosePort going");
+            logger.log(Level.WARN,e);
+        }
+        return result;
+    }
+
 
 
     private static class PortListener implements SerialPortDataListener {
 
         SerialPort serialPort;
 
+        WriterToControllerInterface writer ;
         PackagesInfo packagesInfo;
         InfoOfPackage PreviousInfo;
-        void ListenerInitialize( SerialPort serialPort,PackagesInfo Info,InfoOfPackage previousInfo){
+        void ListenerInitialize( WriterToControllerInterface writer1, SerialPort serialPort,PackagesInfo Info,InfoOfPackage previousInfo){
+            writer=writer1;
             this.serialPort=serialPort;
             packagesInfo=Info;
             PreviousInfo=previousInfo;
@@ -126,16 +156,19 @@ public class Mbus  extends Thread{
 
             Decoder decoder =new Decoder();
             try {
-                System.out.println("##########################################################");
-                System.out.println(PreviousInfo);
-                System.out.println("##########################################################");
+                logger.log(Level.DEBUG,"##########################################################");
+                logger.log(Level.DEBUG,PreviousInfo);
+                logger.log(Level.DEBUG,"##########################################################");
                 packagesInfo.setCurrentInfo(decoder.DecodePackage(newData,PreviousInfo));
-                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                System.out.println(packagesInfo.getCurrentInfo());
-                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                writer.WriteInfoPackage(packagesInfo.getCurrentInfo());
+                logger.log(Level.DEBUG,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                logger.log(Level.DEBUG,packagesInfo.getCurrentInfo());
+                logger.log(Level.DEBUG,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
             } catch (Exception e) {
                 e.printStackTrace();
+                logger.log(Level.DEBUG,"Something going wrong when SerialEvent going");
+                logger.log(Level.WARN,e);
             }
             PreviousInfo=packagesInfo.getCurrentInfo();
             //Settings s =new Settings();

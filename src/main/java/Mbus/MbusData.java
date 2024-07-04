@@ -14,8 +14,8 @@ public class MbusData {
     @Override
     public String toString() {
         return "MbusData{" +
-                "Hi=" + Integer.toHexString(Hi&0xff) +
-                ", Lo=" + Integer.toHexString(Lo&0xff) +
+                "\n\t Hi=" + Integer.toHexString(Hi&0xff) +
+                "\n\t , Lo=" + Integer.toHexString(Lo&0xff) +
                 '}';
     }
 

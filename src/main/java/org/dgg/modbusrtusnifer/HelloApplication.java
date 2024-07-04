@@ -1,6 +1,8 @@
 package org.dgg.modbusrtusnifer;
 
 import Mbus.InfoOfPackage;
+import Mbus.WriterToControllerInterface;
+import Mbus.WriterToController;
 import Mbus.Mbus;
 import Mbus.PackagesInfo;
 import Settings.Settings;
@@ -25,10 +27,12 @@ public class HelloApplication extends Application {
         Initialize();
         mbus.start();
 
+
     }
     public void Initialize(){
-        packagesInfo.Initialize(controller);
-        mbus.MbusInitialize(packagesInfo,new InfoOfPackage());
+        WriterToControllerInterface writer =new WriterToController();
+        writer.Initialize(controller);
+        mbus.MbusInitialize(writer);
     }
 
     HelloController controller;
