@@ -30,6 +30,7 @@ public class HelloApplication extends Application {
 
     }
     public void Initialize(){
+        controller.Initialize();
         WriterToControllerInterface writer =new WriterToController();
         writer.Initialize(controller);
         mbus.MbusInitialize(writer);

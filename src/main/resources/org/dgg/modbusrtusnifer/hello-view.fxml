@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<SplitPane dividerPositions="0.23366834170854273" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
+<SplitPane dividerPositions="0.2562814070351759" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
    <items>
       <GridPane alignment="CENTER">
         <columnConstraints>
@@ -22,7 +22,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane alignment="CENTER">
+            <GridPane alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="90.0" prefWidth="90.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="211.0" />
@@ -32,7 +32,7 @@
 
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="PortComboBox" onAction="#onAction" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <JFXComboBox fx:id="PortComboBox" onAction="#PortSelectionChange" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -44,7 +44,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="1">
+            <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="90.0" prefWidth="30.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="208.0" />
@@ -54,14 +54,14 @@
               </rowConstraints>
                <children>
                   <Label alignment="CENTER" text=" Baud Rate:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <JFXComboBox fx:id="BaudRateComboBox" prefHeight="25.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <JFXComboBox fx:id="BaudRateComboBox" onAction="#BaudRateSelectionChange" prefHeight="25.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </JFXComboBox>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="2">
+            <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="90.0" prefWidth="90.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="210.0" />
@@ -71,7 +71,7 @@
               </rowConstraints>
                <children>
                   <Label text="Parity:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <JFXComboBox fx:id="ParityComboBox" prefHeight="25.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <JFXComboBox fx:id="ParityComboBox" onAction="#ParytiSelectionChange" prefHeight="25.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -87,7 +87,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="StopBitsComboBox" prefHeight="25.0" prefWidth="232.0" GridPane.columnIndex="1">
+                  <JFXComboBox fx:id="StopBitsComboBox" onAction="#StopBitsSelectionChage" prefHeight="25.0" prefWidth="232.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -104,7 +104,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="DataBitsComboBox" prefHeight="25.0" prefWidth="438.0" GridPane.columnIndex="1">
+                  <JFXComboBox fx:id="DataBitsComboBox" onAction="#DataBitsSelectionChange" prefHeight="25.0" prefWidth="438.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -121,7 +121,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="ProgrammModeComboBox" prefHeight="25.0" prefWidth="219.0" GridPane.columnIndex="1">
+                  <JFXComboBox fx:id="ProgrammModeComboBox" onAction="#ProgrammModeSelectionChange" prefHeight="25.0" prefWidth="219.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>

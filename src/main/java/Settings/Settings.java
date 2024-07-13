@@ -1,12 +1,17 @@
 package Settings;
 
 import Const.Const;
+import Mbus.Mbus;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.util.Properties;
 
 
 public  class Settings extends Const {
+
+    private static final Logger logger= LogManager.getLogger(Settings.class);
     private static String Port;
     private static int BaudRate;
 
@@ -44,33 +49,54 @@ public  class Settings extends Const {
     public static void setPort(String port) {
 
         Port = port;
+
         WriteSettingsToFile(PathToSettingsFile);
 
     }
 
     public static void setBaudRate(int baudRate) {
-        BaudRate = baudRate;
-        WriteSettingsToFile(PathToSettingsFile);
+
+        if (BaudRates.IsExistValue(baudRate)){
+            BaudRate=baudRate;
+            WriteSettingsToFile(PathToSettingsFile);
+        }
+
     }
 
     public static void setParity(int parity) {
-        Parity = parity;
-        WriteSettingsToFile(PathToSettingsFile);
+
+        if (Paritу.IsExistValue(parity)){
+            Parity=parity;
+            WriteSettingsToFile(PathToSettingsFile);
+        }
+
     }
 
     public static void setStopBits(int stopBits) {
-        StopBits = stopBits;
-        WriteSettingsToFile(PathToSettingsFile);
+
+        if (Const.StopBits.IsExistValue(stopBits)){
+            StopBits=stopBits;
+            WriteSettingsToFile(PathToSettingsFile);
+        }
+
+
     }
 
     public static void setDataBits(int dataBits) {
-        DataBits = dataBits;
-        WriteSettingsToFile(PathToSettingsFile);
+        if (Const.DataBits.IsExistValue(dataBits)){
+            DataBits=dataBits;
+            WriteSettingsToFile(PathToSettingsFile);
+        }
+
+
     }
 
     public static void setPMode(Const.ProgrammMode PMode) {
-        Settings.PMode = PMode;
-        WriteSettingsToFile(PathToSettingsFile);
+        if (ProgrammMode.IsExistValue(PMode.toString())){
+            Settings.PMode = PMode;
+            WriteSettingsToFile(PathToSettingsFile);
+        }
+
     }
     public Settings(String port, int baudRate, int parity, int stopBits, int dataBits, Const.ProgrammMode mode) {
         Port=port;
@@ -84,14 +110,28 @@ public  class Settings extends Const {
     public Settings() {
     }
 
-    public static boolean SetSettings(String port, int baudRate, int parity, int stopBits, int dataBits, Const.ProgrammMode mode){
+    private static boolean SetSettings(String port, int baudRate, int parity, int stopBits, int dataBits, Const.ProgrammMode mode){
         boolean result=false;
+
+
         Port=port;
-        BaudRate=baudRate;
-        Parity=parity;
-        StopBits=stopBits;
-        DataBits=dataBits;
-        PMode=mode;
+        if (BaudRates.IsExistValue(baudRate)){
+            BaudRate=baudRate;
+        }
+        if (Paritу.IsExistValue(parity)){
+            Parity=parity;
+        }
+        if (Const.StopBits.IsExistValue(stopBits)){
+            StopBits=stopBits;
+        }
+        if (Const.DataBits.IsExistValue(dataBits)){
+            DataBits=dataBits;
+        }
+        if (ProgrammMode.IsExistValue(mode.toString())){
+            PMode=mode;
+        }
+
+
         result=WriteSettingsToFile(Const.PathToSettingsFile);
         return result;
     }
