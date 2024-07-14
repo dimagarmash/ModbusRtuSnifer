@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<SplitPane dividerPositions="0.2562814070351759" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
+<SplitPane dividerPositions="0.2562814070351759" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
    <items>
       <GridPane alignment="CENTER">
         <columnConstraints>
@@ -32,7 +32,7 @@
 
               </rowConstraints>
                <children>
-                  <JFXComboBox fx:id="PortComboBox" onAction="#PortSelectionChange" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <JFXComboBox fx:id="PortComboBox" onAction="#PortSelectionChange"  onMouseClicked="#PortClicked"  prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>

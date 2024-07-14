@@ -2,6 +2,7 @@ package Settings;
 
 import Const.Const;
 import Mbus.Mbus;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +22,18 @@ public  class Settings extends Const {
     private static int StopBits;
     private static int DataBits;
     private static ProgrammMode PMode;
+
+
+    public static String mytoString() {
+        return "Settings{" +
+                " Port : "+Port+" , "+
+                " BaudRate : "+BaudRate+" , "+
+                " Parity : "+Parity+" , "+
+                " StopBits : "+StopBits+" , "+
+                " DataBits : "+DataBits+" , "+
+                " PMode : "+PMode+" , "+
+                "}";
+    }
 
     public static String getPort() {
         return Port;
@@ -137,10 +150,15 @@ public  class Settings extends Const {
     }
 
     public static boolean InitializeSettings(){
+        logger.log(Level.DEBUG,"Settings Initialize");
         boolean result =false;
         result=ReadSettingsFromFile(Const.PathToSettingsFile);
-        if (!result)
+        logger.log(Level.DEBUG,"Read settings from file result : "+result);
+        if (!result){
             result=SetSettings(DefaultPort,DefaultBaudRate,DefaultParity,DefaultStopBits,DefaultDataBits,DefaultPMode);
+            logger.log(Level.DEBUG,"Set default settings resut : "+result);
+        }
+        logger.log(Level.DEBUG,"Settings Contains : "+mytoString());
         return result;
     }
 

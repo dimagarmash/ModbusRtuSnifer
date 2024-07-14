@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests &#10;need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/SerialPortChecker.java" afterDir="false" />
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Const/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Const/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" afterDir="false" />
@@ -30,6 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/fazecast/jSerialComm/2.11.0/jSerialComm-2.11.0-sources.jar!/com/fazecast/jSerialComm/SerialPort.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -49,25 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DecoderTest.checkErr.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.getSignedValue.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ModbusRtuSnifer [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "JUnit.DecoderTest.checkErr.executor": "Run",
+    "JUnit.MbusDataTest.executor": "Run",
+    "JUnit.MbusDataTest.getSignedValue.executor": "Run",
+    "Maven.ModbusRtuSnifer [test].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\target" />
@@ -270,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720115498830</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1720891567495</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1720891567495</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +303,8 @@
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings" />
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;need add interface" />
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests &#10;need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests &#10;need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface" />
+    <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

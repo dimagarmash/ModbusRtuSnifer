@@ -72,7 +72,7 @@ public class Mbus  extends Thread implements interfaceMbus {
                     s.setNumDataBits(Databits);
 
                     logger.log(Level.DEBUG,"___________________________________________________");
-                    logger.log(Level.DEBUG,"Something going wrong when SerialInitialize going");
+                    //logger.log(Level.DEBUG,"Something going wrong when SerialInitialize going");
                     logger.log(Level.DEBUG,"SystemPortName()  : "+s.getSystemPortName());
                     logger.log(Level.DEBUG,"getNumDataBits()  : "+s.getNumDataBits());
                     logger.log(Level.DEBUG,"getBaudRate()  : "+s.getBaudRate());
