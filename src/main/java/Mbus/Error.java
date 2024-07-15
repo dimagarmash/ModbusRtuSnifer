@@ -13,11 +13,11 @@ public class Error {
 
     @Override
     public String toString() {
-        return "Error{" +
-                "\n\t Number=" + Number +
-                "\n\t , RestrictedDescription='" + RestrictedDescription + '\'' +
-                "\n\t , FullDescription='" + FullDescription + '\'' +
-                '}';
+        return "Error" +
+                "\n\t\t{ Number=" + Number +
+                "\n\t \t, RestrictedDescription='" + RestrictedDescription + '\'' +
+                "\n\t \t, FullDescription='" + FullDescription + '\'' +
+                "\n\t \t}";
     }
 
     public Error(byte number, String restrictedDescription, String fullDescription) {

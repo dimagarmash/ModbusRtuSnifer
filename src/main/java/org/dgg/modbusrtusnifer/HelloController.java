@@ -4,6 +4,7 @@ package org.dgg.modbusrtusnifer;
 import Const.Const;
 import Mbus.*;
 import Settings.Settings;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.collections.ObservableList;
@@ -15,7 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class HelloController {
+public class HelloController implements ControllerInterface {
 
     private static final Logger logger= LogManager.getLogger(HelloController.class);
     @FXML
@@ -29,6 +30,8 @@ public class HelloController {
 
     @FXML
     private JFXComboBox<?> PortComboBox;
+    @FXML
+    private JFXButton OpenCloseButton;
 
     @FXML
     private JFXComboBox<?> ProgrammModeComboBox;
@@ -39,6 +42,8 @@ public class HelloController {
     @FXML
     private JFXTextArea TextArray;
 
+    boolean OpenPortButtonState=false;
+    RestrictedMbusInterface restrictedMbusInterface;
     ObservableList ports;
     ObservableList baudRates;
     ObservableList dataBits;
@@ -46,11 +51,53 @@ public class HelloController {
     ObservableList pmods;
     ObservableList stopBits;
 
-    нужно добавить кнопку открытия порта
-    нужно добавить  метод записи в textarray
-            так же должен быть реализован останов прокрутки
-            и очистка строк болькокогото колличества
-    метод вынести в интерфейс  и имплементировать его в контроллере
+   // нужно добавить кнопку открытия порта
+   // нужно добавить  метод записи в textarray
+    //        так же должен быть реализован останов прокрутки
+     //       и очистка строк болькокогото колличества
+   // метод вынести в интерфейс  и имплементировать его в контроллере
+
+    @Override
+    public void  SetText(String tx)throws Exception
+    {
+        System.out.println(TextArray.getText().length());
+        if(TextArray.getText().length()>Integer.MAX_VALUE-65535)
+        {
+            TextArray.clear();
+        }
+        TextArray.appendText(tx + "\r\n");
+    }
+    @FXML
+    void OpenClosedButtonPressed(ActionEvent event) {
+        if (OpenPortButtonState){
+           OpenPortButtonState=!OpenPortButtonState;
+           OpenCloseButton.setText("Open");
+           ClosePort();
+        }else {
+            if (Settings.getPort()!=null&&Settings.getPort().length()>0){
+                OpenPortButtonState=!OpenPortButtonState;
+                OpenCloseButton.setText("Close");
+                OpenPort();
+            }
+            else {
+                try {
+                    SetText("\r\n Port not selected . Need select port");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    public void OpenPort() {
+        restrictedMbusInterface.OpenPort();
+    }
+
+    public void ClosePort() {
+        restrictedMbusInterface.ClosePort();
+    }
+
     @FXML
     void BaudRateSelectionChange(ActionEvent event) {
         Settings.setBaudRate((int) BaudRateComboBox.getSelectionModel().getSelectedItem());
@@ -90,8 +137,10 @@ public class HelloController {
     void StopBitsSelectionChage(ActionEvent event) {
         Settings.setStopBits((int) StopBitsComboBox.getSelectionModel().getSelectedItem());
     }
-    void Initialize(){
+    void Initialize(RestrictedMbusInterface mbus){
+
         logger.log(Level.DEBUG,"Controller initialize");
+        restrictedMbusInterface=mbus;
          ports= PortComboBox.getItems();
          baudRates=BaudRateComboBox.getItems();
          dataBits=DataBitsComboBox.getItems();

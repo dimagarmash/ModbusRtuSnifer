@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
 
-
+    static Mbus mbus=new Mbus();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -30,14 +30,14 @@ public class HelloApplication extends Application {
 
     }
     public void Initialize(){
-        controller.Initialize();
+        controller.Initialize(mbus);
         WriterToControllerInterface writer =new WriterToController();
         writer.Initialize(controller);
         mbus.MbusInitialize(writer);
     }
 
     HelloController controller;
-    static Mbus mbus=new Mbus();
+
    static PackagesInfo packagesInfo=new PackagesInfo();
     public static void main(String[] args) {
 

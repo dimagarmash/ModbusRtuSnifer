@@ -11,14 +11,14 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Mbus  extends Thread implements interfaceMbus {
+public class Mbus  extends Thread implements interfaceMbus, RestrictedMbusInterface {
 
 
     private static final Logger logger= LogManager.getLogger(Mbus.class);
 
     WriterToControllerInterface writer;
-    PackagesInfo packagesInfo;
-    InfoOfPackage PreviousInfo;
+    PackagesInfo packagesInfo=new PackagesInfo();
+    InfoOfPackage PreviousInfo=new InfoOfPackage();
     SerialPort serialPort;
     PortListener portListener;
 
@@ -93,10 +93,23 @@ public class Mbus  extends Thread implements interfaceMbus {
 
         return result;
     }
+    @Override
     public boolean OpenPort(){
      boolean result=false;
      try {
-         serialPort.openPort();
+
+         serialPort =serialInitialze(Settings.getPort(),Settings.getBaudRate(),Settings.getDataBits(),Settings.getStopBits(),Settings.getParity());
+         if (serialPort!=null){
+             portListener=new PortListener();
+             portListener.ListenerInitialize(writer,serialPort,this.packagesInfo,PreviousInfo);
+             serialPort.addDataListener(portListener);
+             serialPort.openPort();
+             if (serialPort.isOpen()){
+                 writer.WriteMessage("Port successfully  opened with parameters : \r\n"+Settings.mytoString());
+             }else {
+                 writer.WriteMessage("When port open something going wrong \r\n");
+             }
+         }
      }catch (Exception e){
          e.printStackTrace();
          logger.log(Level.DEBUG,"Something going wrong when OpenPort going");
@@ -104,10 +117,14 @@ public class Mbus  extends Thread implements interfaceMbus {
      }
      return result;
     }
+    @Override
     public boolean ClosePort(){
         boolean result=false;
         try {
             serialPort.closePort();
+            if (!serialPort.isOpen()){
+                writer.WriteMessage("Port successfully closed");
+            }
         }catch (Exception e){
             e.printStackTrace();
             logger.log(Level.DEBUG,"Something going wrong when ClosePort going");

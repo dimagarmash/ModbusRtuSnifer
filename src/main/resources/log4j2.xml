@@ -12,7 +12,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="src.main.java.Mbus.WriterToController" level="info" additivity="false">
+        <Logger name="src.main.java.Mbus.WriterToController" level="all" additivity="false">
             <appender-ref ref="DataLog" level="all"/>
 
         </Logger>

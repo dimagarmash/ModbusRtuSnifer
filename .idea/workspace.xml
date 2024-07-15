@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/ControllerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/RestrictedMbusInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/WriterToController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/WriterToController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/WriterToControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/WriterToControllerInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/dgg/modbusrtusnifer/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dgg/modbusrtusnifer/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -51,25 +60,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "JUnit.DecoderTest.checkErr.executor": "Run",
-    "JUnit.MbusDataTest.executor": "Run",
-    "JUnit.MbusDataTest.getSignedValue.executor": "Run",
-    "Maven.ModbusRtuSnifer [test].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DecoderTest.checkErr.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MbusDataTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MbusDataTest.getSignedValue.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ModbusRtuSnifer [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\target" />
@@ -280,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720891567495</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1720971374693</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1720971374693</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

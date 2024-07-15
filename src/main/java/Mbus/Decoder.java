@@ -18,7 +18,7 @@ public class Decoder extends Functions implements interfaceDecoder  {
 
         String PackageType=String.valueOf(Const.PackageType.NOT_RECOGNIZED);
         int Address=-1;
-        Function function=null;
+        Function function=new Function();
         int StartRegisterAddress=-1;
         int EndRegisterAddress=-1;
         List<MbusData> data=new ArrayList<MbusData>();

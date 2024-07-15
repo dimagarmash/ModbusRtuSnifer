@@ -18,7 +18,8 @@ public class InfoOfPackage {
     int CRC;
     int CalculatedCRC;
     boolean CRCIsOk;
-
+    String newline="\r\n";
+    String newlinet="\r\n\t";
     @Override
     public String toString() {
         String bytes =null;
@@ -32,19 +33,19 @@ public class InfoOfPackage {
         if (PackageBytes!=null){
             bytes=Arrays.toString(PackageBytes);
         }
-        return "InfoOfPackage{" +
-                "PackageBytes=" + bytes +
-                ", PackageType='" + PackageType + '\'' +
-                ", Address=" + Address +
-                ", function=" + fnumber +" "+fdescription+
-                ", StartRegisterAddress=" + StartRegisterAddress +
-                ", EndRegisterAddress=" + EndRegisterAddress +
-                ", DataBytesCount=" + DataBytesCount +
-                ", RegisterData=" + "\t"+RegisterData +"\n"+
-                ", error=" + error +
-                ", CRC=" + CRC +
-                ", CalculatedCRC=" + CalculatedCRC +
-                ", CRCIsOk=" + CRCIsOk +
+        return "InfoOfPackage" +"\r\n\t{"+
+                "PackageBytes=" + bytes +newlinet+
+                ",PackageType='" + PackageType + '\'' +newlinet+
+                ",Address=" + Address +newlinet+
+                ",function=" + fnumber +" "+fdescription+newlinet+
+                ",StartRegisterAddress=" + StartRegisterAddress +newlinet+
+                ",EndRegisterAddress=" + EndRegisterAddress +newlinet+
+                ",DataBytesCount=" + DataBytesCount +newlinet+
+                ",RegisterData=" + "\t"+RegisterData + newlinet+
+                ",error=" + error +newlinet+
+                ",CRC=" + CRC +newlinet+
+                ",CalculatedCRC=" + CalculatedCRC +newlinet+
+                ",CRCIsOk=" + CRCIsOk +newlinet+
                 '}';
     }
 

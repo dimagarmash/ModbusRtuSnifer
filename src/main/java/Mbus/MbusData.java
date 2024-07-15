@@ -13,10 +13,12 @@ public class MbusData {
 
     @Override
     public String toString() {
-        return "MbusData{" +
-                "\n\t Hi=" + Integer.toHexString(Hi&0xff) +
-                "\n\t , Lo=" + Integer.toHexString(Lo&0xff) +
-                '}';
+        return "\n\t\tData" +
+                "\n\t\t\t{UnsignedInteger="+GetUnsignedValue()+
+                "\n\t\t\tInteger="+GetSignedValue()+
+                "\n\t\t\tHi=" + Integer.toHexString(Hi&0xff) +
+                "\n\t\t\t,Lo=" + Integer.toHexString(Lo&0xff) +
+                "\n\t\t\t}\n\t\t";
     }
 
     int GetUnsignedValue()

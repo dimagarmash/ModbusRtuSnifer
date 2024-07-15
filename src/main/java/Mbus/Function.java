@@ -20,6 +20,21 @@ public class Function {
     int StartDataPosInRequest;
     int StartDataPosInResponse;
 
+    public Function() {
+
+        this.number = -1;
+        Number = "-1";
+        NumberWhenErr = "-1";
+        this.numberWhenErr = -1;
+        Description = "-1";
+        MinRequestByteLength = -1;
+        this.isFixedResponseLength = false;
+        MinResponseLength = -1;
+        this.isFixedRequestLength = false;
+        StartDataPosInRequest = -1;
+        StartDataPosInResponse = -1;
+    }
+
     @Override
     public String toString() {
         return "Function{" +
