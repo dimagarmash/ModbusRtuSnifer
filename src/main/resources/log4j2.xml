@@ -7,18 +7,19 @@
         <File name="CommonLog" fileName="CommonLog-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
-        <File name="DataLog" fileName="DataLog-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
+        <File name="DataLog" fileName="DataLog-${date:yyyyMMdd}.log" immediateFlush="false" append="true"  >
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="src.main.java.Mbus.WriterToController" level="all" additivity="false">
+        <Logger name="Mbus.WriterToController" level="all" additivity="false">
             <appender-ref ref="DataLog" level="all"/>
 
         </Logger>
         <Root level="debug">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="CommonLog"/>
+
         </Root>
     </Loggers>
 </Configuration>

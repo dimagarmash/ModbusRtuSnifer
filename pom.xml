@@ -8,6 +8,7 @@
   <artifactId>ModbusRtuSnifer</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>ModbusRtuSnifer</name>
+  <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -146,13 +147,80 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>org.dgg.modbusrtusnifer/org.dgg.modbusrtusnifer.HelloApplication</mainClass>
+              <mainClass>org.dgg.modbusrtusnifer.Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
               <noManPages>true</noManPages>
               <stripDebug>true</stripDebug>
               <noHeaderFiles>true</noHeaderFiles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.1</version>
+
+        <configuration>
+          <!-- DO NOT include log4j.properties file in your Jar -->
+          <excludes>
+            <exclude>**/log4j.properties</exclude>
+          </excludes>
+          <archive>
+            <manifest>
+              <!-- Jar file entry point -->
+              <mainClass>org.dgg.modbusrtusnifer.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.1</version>
+
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <!-- Jar file entry point -->
+              <mainClass>org.dgg.modbusrtusnifer.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <transformers>
+                <transformer implementation=
+                                     "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.dgg.modbusrtusnifer.Main</mainClass>
+                </transformer>
+              </transformers>
             </configuration>
           </execution>
         </executions>

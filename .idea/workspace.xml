@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ModbusRtuSnifer:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/ControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Mbus/RestrictedMbusInterface.java" afterDir="false" />
+    <list default="true" id="7a5d0e0b-73b5-4f19-bfc9-bc0f73a82c4d" name="Changes" comment="v_0.0.1&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Error.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/InfoOfPackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/Mbus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/MbusData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/WriterToController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/WriterToController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mbus/WriterToControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mbus/WriterToControllerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dgg/modbusrtusnifer/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/dgg/modbusrtusnifer/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dgg/modbusrtusnifer/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,13 +31,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/com/fazecast/jSerialComm/2.11.0/jSerialComm-2.11.0-sources.jar!/com/fazecast/jSerialComm/SerialPort.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -60,25 +44,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DecoderTest.checkErr.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MbusDataTest.getSignedValue.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ModbusRtuSnifer [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT-jar-with-dependencies.jar.executor": "Run",
+    "JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT-shaded.jar.executor": "Run",
+    "JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT.jar.executor": "Run",
+    "JAR Application.ModbusRtuSnifer.jar.executor": "Run",
+    "JUnit.DecoderTest.checkErr.executor": "Run",
+    "JUnit.MbusDataTest.executor": "Run",
+    "JUnit.MbusDataTest.getSignedValue.executor": "Run",
+    "Maven.ModbusRtuSnifer [clean,install].executor": "Run",
+    "Maven.ModbusRtuSnifer [clean,package].executor": "Run",
+    "Maven.ModbusRtuSnifer [clean].executor": "Run",
+    "Maven.ModbusRtuSnifer [compile].executor": "Run",
+    "Maven.ModbusRtuSnifer [install].executor": "Run",
+    "Maven.ModbusRtuSnifer [package].executor": "Run",
+    "Maven.ModbusRtuSnifer [test].executor": "Run",
+    "Maven.ModbusRtuSnifer [wrapper:wrapper...].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "I:/DimaWorkSpace/ModbusRtuSnifer/ModbusRtuSnifer/target",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\DimaWorkSpace\ModbusRtuSnifer\ModbusRtuSnifer\target" />
@@ -97,6 +93,13 @@
       <recent name="Mbus" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+      <command value="mvn wrapper:wrapper -Dmaven=3.9.6{{{}{ }}}" />
+      <command value="mvn clean install" />
+    </option>
+  </component>
   <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.dgg.modbusrtusnifer.HelloApplication" />
@@ -111,59 +114,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DecoderTest.checkErr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ModbusRtuSnifer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Mbus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Mbus" />
-      <option name="MAIN_CLASS_NAME" value="Mbus.DecoderTest" />
-      <option name="METHOD_NAME" value="checkErr(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ModbusRtuSnifer-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/ModbusRtuSnifer-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <method v="2" />
     </configuration>
-    <configuration name="MbusDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ModbusRtuSnifer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Mbus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Mbus" />
-      <option name="MAIN_CLASS_NAME" value="Mbus.MbusDataTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ModbusRtuSnifer-1.0-SNAPSHOT-shaded.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/ModbusRtuSnifer-1.0-SNAPSHOT-shaded.jar" />
+      <method v="2" />
     </configuration>
-    <configuration name="MbusDataTest.getSignedValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ModbusRtuSnifer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Mbus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Mbus" />
-      <option name="MAIN_CLASS_NAME" value="Mbus.MbusDataTest" />
-      <option name="METHOD_NAME" value="getSignedValue(byte,byte,int)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="ModbusRtuSnifer-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/ModbusRtuSnifer-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ModbusRtuSnifer.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/ModbusRtuSnifer_jar/ModbusRtuSnifer.jar" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="JUnit.MbusDataTest.getSignedValue" />
-        <item itemvalue="JUnit.MbusDataTest" />
-        <item itemvalue="JUnit.DecoderTest.checkErr" />
+        <item itemvalue="JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT-shaded.jar" />
+        <item itemvalue="JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.ModbusRtuSnifer-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+        <item itemvalue="JAR Application.ModbusRtuSnifer.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +270,79 @@
       <option name="project" value="LOCAL" />
       <updated>1720971374693</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1721053135052</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721053135052</updated>
+    </task>
+    <task id="LOCAL-00016" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722781752773</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722781752773</updated>
+    </task>
+    <task id="LOCAL-00017" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722781791280</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722781791280</updated>
+    </task>
+    <task id="LOCAL-00018" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722781809431</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722781809431</updated>
+    </task>
+    <task id="LOCAL-00019" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722782272182</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722782272182</updated>
+    </task>
+    <task id="LOCAL-00020" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722783606186</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722783606186</updated>
+    </task>
+    <task id="LOCAL-00021" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722784395590</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722784395590</updated>
+    </task>
+    <task id="LOCAL-00022" summary="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices&#10;&#10;Push v_0.0.1">
+      <option name="closed" value="true" />
+      <created>1722784675645</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722784675645</updated>
+    </task>
+    <task id="LOCAL-00023" summary="v_0.0.1&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices">
+      <option name="closed" value="true" />
+      <created>1722784741319</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1722784741319</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -321,7 +366,10 @@
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;need add interface" />
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests &#10;need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface" />
     <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! &#10;!!!need add open close port button , need events listeners in controller , need function which print text at text area  in controller&#10;need for Controller implements interface!!!&#10;need change settings by selection changed comboboxes&#10;need select items in combo boxes by initialize controller&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+    <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;&#10;need add features auto find slave devices" />
+    <MESSAGE value="MbusData complete&#10;decoder  looks ok but need mo tests&#10;added Settings&#10;threading and event almost complete ,need add port stop function  &#10;Interfacese added&#10;logging added but need tests&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices&#10;&#10;Push v_0.0.1" />
+    <MESSAGE value="v_0.0.1&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices" />
+    <option name="LAST_COMMIT_MESSAGE" value="v_0.0.1&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need fix bug with cobo box select nothing&#10;need fix unwriting to datalog&#10;need add stop autoscroll&#10;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&#10;need add features auto find slave devices" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

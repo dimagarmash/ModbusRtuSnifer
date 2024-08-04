@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<SplitPane dividerPositions="0.2562814070351759" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
+<SplitPane dividerPositions="0.2562814070351759" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dgg.modbusrtusnifer.HelloController">
    <items>
       <GridPane alignment="CENTER">
         <columnConstraints>
